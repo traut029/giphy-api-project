@@ -1,7 +1,7 @@
 //Make document load before running
 $(document).ready(function () {
     //starting array of gifs
-    var gifArray = ["Cats", "Dogs", "Birds", "Horses"];
+    var gifArray = ["Breaking Bad", "Avatar: The Last Airbender", "Spongebob SquarePants", "Firefly","Psych","Game of Thrones","Buffy The Vampire Slayer","Chuck","Babylon 5","Animaniacs","Twilight Zone","Parks and Rec","How I Met Your Mother"];
 
     //Function to display gifs
     function displayGifs() {
@@ -23,13 +23,13 @@ $(document).ready(function () {
                 for (var i = 0; i < results.length; i++) {
                     var gifDiv = $("<div class='gif'>");
                     var p = $("<p>");
-                    p.text(results[i].rating);
+                    p.text("Rating: "+results[i].rating);
                     var gifImage = $("<img>");
-                    gifImage.attr("src", results[i].images.fixed_height.url);
+                    gifImage.attr("src", results[i].images.fixed_height_still.url);
                     gifImage.attr("data-animate",results[i].images.fixed_height.url)
                     gifImage.attr("data-still",results[i].images.fixed_height_still.url)
-                    gifImage.attr("data-state","animate")
-                    gifImage.addClass("gifImage");
+                    gifImage.attr("data-state","still")
+                    gifImage.addClass("gifImage img-fluid");
                     gifDiv.append(p);
                     gifDiv.append(gifImage);
                     $("#gifs-appear-here").prepend(gifDiv);
