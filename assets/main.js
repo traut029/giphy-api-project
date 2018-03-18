@@ -17,7 +17,9 @@ $(document).ready(function () {
 
                 console.log(response)
                 var results = response.data;
-
+                //empty div so there is only the current selection of gifs, not all summoned
+                $("#gifs-appear-here").empty();
+                //print out image div in html, with all kinds of attributes to help with still and animate function
                 for (var i = 0; i < results.length; i++) {
                     var gifDiv = $("<div class='gif'>");
                     var p = $("<p>");
@@ -67,7 +69,7 @@ $(document).ready(function () {
     });
 
  //Pause and stop functionality when a gif is clicked
- $(".gifImage").click(function () {
+ $("#gifs-appear-here").on("click",".gifImage",function (event) {
     console.log("gifImage class clicked");
     var state = $(this).attr("data-state");
 
